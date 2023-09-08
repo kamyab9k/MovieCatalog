@@ -41,7 +41,8 @@ class MovieAdaptor(
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
             val movie = movies[position]
-            val imagebase = "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg\n" + movie.poster_patch
+            val imagebase =
+                "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg\n" + movie.poster_patch
             Glide.with(context)
                 .load(imagebase)
                 .error(R.mipmap.tvmovieposter)

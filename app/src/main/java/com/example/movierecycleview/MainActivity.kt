@@ -17,14 +17,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.rvMoviesList.layoutManager = LinearLayoutManager(this)
         binding.rvMoviesList.setHasFixedSize(true)
-        getMovieData { movies: List<Movie> -> binding.rvMoviesList.adapter = MovieAdaptor(this,movies)}
+
+        getMovieData { movies: List<Movie> ->
+            binding.rvMoviesList.adapter = MovieAdaptor(this, movies)
+        }
     }
 
     private fun getMovieData(callback: (List<Movie>) -> Unit) {
         val apiService = MovieApiService.getInstance().create(MovieApiInterface::class.java)
         apiService.getMovieList().enqueue(object : retrofit2.Callback<MovieResponse> {
+
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
             }
 

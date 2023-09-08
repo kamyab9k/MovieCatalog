@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Movie(
+
     @SerializedName("id")
     val id: String?,
 
