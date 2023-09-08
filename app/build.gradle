@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.movierecycleview'
-    compileSdk 33
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.example.movierecycleview"
         minSdk 29
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -27,6 +27,7 @@ buildFeatures{
         }
     }
     compileOptions {
+
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }

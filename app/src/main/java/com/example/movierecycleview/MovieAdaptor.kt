@@ -16,9 +16,9 @@ import com.example.movierecycleview.models.Movie
 
 class MovieAdaptor(
     private val context: Context,
-    private val movies: List<Movie>,
-) : RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>() {
 
+) : RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>() {
+    private var movies: List<Movie> = emptyList()
     inner class MovieViewHolder(val binding: MovieItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
     }
@@ -52,5 +52,9 @@ class MovieAdaptor(
             movieTitle.text = movies[position].title
             MovieReleaseDate.text = movies[position].release_date
         }
+    }
+    fun updateMovies(newMovies: List<Movie>) {
+        movies = newMovies
+        notifyDataSetChanged()
     }
 }
