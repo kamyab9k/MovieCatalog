@@ -8,7 +8,7 @@ import com.example.movierecycleview.models.MovieResponse
 import retrofit2.Call
 import retrofit2.Response
 
-class MovieViewModel:ViewModel() {
+class MovieViewModel : ViewModel() {
 
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>> get() = _movies

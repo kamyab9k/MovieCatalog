@@ -11,7 +11,7 @@
     android:background="@color/dark_grey">
 
     <ImageView
-        android:id="@+id/movie_poster"
+        android:id="@+id/movie_poster_imageview"
         android:layout_width="300px"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_imageview"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:text="@string/release_date"
         android:textColor="@color/earthYellow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/movie_poster"
+        app:layout_constraintStart_toEndOf="@+id/movie_poster_imageview"
         app:layout_constraintTop_toBottomOf="@+id/movie_title"
         app:layout_constraintVertical_bias="0.728" />
 </androidx.constraintlayout.widget.ConstraintLayout>

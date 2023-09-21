@@ -14,8 +14,8 @@ import retrofit2.Call
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MovieViewModel
     private lateinit var movieAdapter: MovieAdaptor
 

@@ -1,7 +1,6 @@
 package com.example.movierecycleview.models
 
 import android.os.Parcelable
-import android.service.quicksettings.Tile
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -14,8 +13,8 @@ data class Movie(
     @SerializedName("title")
     val title: String?,
 
-    @SerializedName("poster_patch")
-    val poster_patch: String?,
+    @SerializedName("poster_path")
+    val poster_path: String?,
 
     @SerializedName("release_date")
     val release_date: String,
