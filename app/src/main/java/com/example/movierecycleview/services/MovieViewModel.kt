@@ -11,7 +11,7 @@ import retrofit2.Response
 class MovieViewModel : ViewModel() {
 
     private val _movies = MutableLiveData<List<Movie>>()
-    val movies: LiveData<List<Movie>> get() = _movies
+    val moviesViewModel: LiveData<List<Movie>> get() = _movies
 
     init {
         fetchMovies()

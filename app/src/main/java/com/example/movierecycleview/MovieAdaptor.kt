@@ -13,11 +13,10 @@ class MovieAdaptor(
     private val context: Context,
 ) : RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>() {
 
-    private var movies: List<Movie> = emptyList()
+    private var moviesList: List<Movie> = emptyList()
 
     inner class MovieViewHolder(val binding: MovieItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,27 +25,26 @@ class MovieAdaptor(
     }
 
     override fun getItemCount(): Int {
-        return movies.size
+        return moviesList.size
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
-            val moviePosterPath = movies[position].poster_path
+            val moviePosterPath = moviesList[position].poster_path
             val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
             val image = imageBaseUrl + moviePosterPath
 
             Glide.with(context)
                 .load(image)
-//                .error(R.mipmap.tvmovieposter)
                 .into(holder.binding.moviePosterImageview)
 
-            movieTitle.text = movies[position].title
-            MovieReleaseDate.text = movies[position].release_date
+            movieTitle.text = moviesList[position].title
+            MovieReleaseDate.text = moviesList[position].release_date
         }
     }
 
     fun updateMovies(newMovies: List<Movie>) {
-        movies = newMovies
+        moviesList = newMovies
         notifyDataSetChanged()
     }
 }

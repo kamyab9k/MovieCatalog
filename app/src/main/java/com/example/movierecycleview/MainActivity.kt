@@ -5,13 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movierecycleview.databinding.ActivityMainBinding
-import com.example.movierecycleview.models.Movie
-import com.example.movierecycleview.models.MovieResponse
-import com.example.movierecycleview.services.MovieApiInterface
-import com.example.movierecycleview.services.MovieApiService
 import com.example.movierecycleview.services.MovieViewModel
-import retrofit2.Call
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,8 +27,7 @@ class MainActivity : AppCompatActivity() {
             adapter = movieAdapter
         }
 
-        // Observe the movies LiveData from the ViewModel
-        viewModel.movies.observe(this) { movies ->
+        viewModel.moviesViewModel.observe(this) { movies ->
             movieAdapter.updateMovies(movies)
         }
         viewModel.fetchMovies()
