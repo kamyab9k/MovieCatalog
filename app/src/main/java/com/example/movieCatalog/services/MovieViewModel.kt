@@ -1,10 +1,10 @@
-package com.example.movierecycleview.services
+package com.example.movieCatalog.services
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.movierecycleview.models.Movie
-import com.example.movierecycleview.models.MovieResponse
+import com.example.movieCatalog.models.Movie
+import com.example.movieCatalog.models.MovieResponse
 import retrofit2.Call
 import retrofit2.Response
 

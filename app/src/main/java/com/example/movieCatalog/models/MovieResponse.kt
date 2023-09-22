@@ -1,4 +1,4 @@
-package com.example.movierecycleview.models
+package com.example.movieCatalog.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

@@ -1,6 +1,6 @@
-package com.example.movierecycleview.services
+package com.example.movieCatalog.services
 
-import com.example.movierecycleview.models.MovieResponse
+import com.example.movieCatalog.models.MovieResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

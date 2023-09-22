@@ -1,4 +1,4 @@
-package com.example.movierecycleview
+package com.example.movieCatalog
 
 import org.junit.Test
 

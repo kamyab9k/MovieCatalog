@@ -1,11 +1,11 @@
-package com.example.movierecycleview
+package com.example.movieCatalog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movierecycleview.databinding.ActivityMainBinding
-import com.example.movierecycleview.services.MovieViewModel
+import com.example.movieCatalog.services.MovieViewModel
+import com.example.movieCatalog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

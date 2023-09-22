@@ -1,12 +1,12 @@
-package com.example.movierecycleview
+package com.example.movieCatalog
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movierecycleview.databinding.MovieItemBinding
-import com.example.movierecycleview.models.Movie
+import com.example.movieCatalog.models.Movie
+import com.example.movieCatalog.databinding.MovieItemBinding
 
 
 class MovieAdaptor(
