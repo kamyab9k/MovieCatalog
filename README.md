@@ -1,5 +1,5 @@
 # MovieCatalog
-Fully functional movie catalog app that recommends latest popular movies.
+Fully functional movie catalog app that recommends latest **popular** movies.
 
 techonologies used in this project :
 
