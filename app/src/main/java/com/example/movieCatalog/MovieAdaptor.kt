@@ -40,6 +40,7 @@ class MovieAdaptor(
 
             movieTitle.text = moviesList[position].title
             MovieReleaseDate.text = moviesList[position].release_date
+            Rating.text= moviesList[position].vote_average
         }
     }
 
