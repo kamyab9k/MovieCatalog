@@ -1,7 +1,7 @@
 # MovieCatalog
 Fully functional movie catalog app that recommends latest **popular** movies.
 
-techonologies used in this project :
+Techonologies used in this project :
 
 * Retrofit
 * Glide
