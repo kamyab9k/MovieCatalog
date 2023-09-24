@@ -3,4 +3,7 @@
     <string name="textview">TextView</string>
     <string name="movie_title">Movie Title</string>
     <string name="release_date">Release Date</string>
+    <string name="rating">Rating :</string>
+    <string name="_10">/10</string>
+    <string name="todo">TODO</string>
 </resources>
