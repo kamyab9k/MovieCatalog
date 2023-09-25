@@ -1,6 +1,7 @@
 package com.example.movieCatalog
 
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ class MovieAdaptor(
     private val context: Context,
 ) : RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>() {
 
+//    private var onClickListener: OnClickListener? = null
     private var moviesList: List<Movie> = emptyList()
 
     inner class MovieViewHolder(val binding: MovieItemBinding) :
@@ -30,6 +32,7 @@ class MovieAdaptor(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
+            val item = moviesList[position]
             val moviePosterPath = moviesList[position].poster_path
             val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
             val image = imageBaseUrl + moviePosterPath
@@ -41,8 +44,23 @@ class MovieAdaptor(
             movieTitle.text = moviesList[position].title
             MovieReleaseDate.text = moviesList[position].release_date
             Rating.text= moviesList[position].vote_average
+//
+//            holder.itemView.setOnClickListener {
+//                if (onClickListener != null) {
+//                    onClickListener!!.onClick(position, item )
+//                }
+//            }
         }
     }
+
+//    fun setOnClickListener(onClickListener: OnClickListener) {
+//        this.onClickListener = onClickListener
+//    }
+//
+//    // onClickListener Interface
+//    interface OnClickListener {
+//        fun onClick(position: Int, model: Movie)
+//    }
 
     fun updateMovies(newMovies: List<Movie>) {
         moviesList = newMovies

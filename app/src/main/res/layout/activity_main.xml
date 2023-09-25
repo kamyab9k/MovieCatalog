@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:text="Movie Catalog"
+                android:text="@string/movie_catalog"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:text="Popular Movies"
+                android:text="@string/popular_movies"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

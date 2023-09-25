@@ -10,7 +10,6 @@ data class Movie(
     @SerializedName("id")
     val id: String?,
 
-
     @SerializedName("title")
     val title: String?,
 
