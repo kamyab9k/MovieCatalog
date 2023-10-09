@@ -32,7 +32,7 @@ class MovieAdaptor(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
-            val item = moviesList[position]
+//            val item = moviesList[position]
             val moviePosterPath = moviesList[position].poster_path
             val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
             val image = imageBaseUrl + moviePosterPath
@@ -44,23 +44,8 @@ class MovieAdaptor(
             movieTitle.text = moviesList[position].title
             MovieReleaseDate.text = moviesList[position].release_date
             Rating.text= moviesList[position].vote_average
-//
-//            holder.itemView.setOnClickListener {
-//                if (onClickListener != null) {
-//                    onClickListener!!.onClick(position, item )
-//                }
-//            }
         }
     }
-
-//    fun setOnClickListener(onClickListener: OnClickListener) {
-//        this.onClickListener = onClickListener
-//    }
-//
-//    // onClickListener Interface
-//    interface OnClickListener {
-//        fun onClick(position: Int, model: Movie)
-//    }
 
     fun updateMovies(newMovies: List<Movie>) {
         moviesList = newMovies

@@ -10,26 +10,38 @@ import com.example.movieCatalog.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MovieViewModel
-    private lateinit var movieAdapter: MovieAdaptor
+    private lateinit var viewModel : MovieViewModel
+    private val movieAdapter = MovieAdaptor(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
-        val movieAdapter = MovieAdaptor(this)
+        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
+        setupMovieRecyclerView()
+        getMovieData()
+        observeMovieData()
+    }
+
+    private fun observeMovieData() {
+        viewModel.movieListLiveData.observe(this) { movies ->
+            movieAdapter.updateMovies(movies)
+        }
+    }
+
+    private fun getMovieData() {
+        viewModel.fetchMovies()
+    }
+
+    private fun setupMovieRecyclerView() {
         binding.rvMoviesList.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
             adapter = movieAdapter
         }
-
-        viewModel.moviesViewModel.observe(this) { movies ->
-            movieAdapter.updateMovies(movies)
-        }
-        viewModel.fetchMovies()
     }
+
 }
