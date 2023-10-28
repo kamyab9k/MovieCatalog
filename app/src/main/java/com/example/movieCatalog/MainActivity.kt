@@ -1,8 +1,6 @@
 package com.example.movieCatalog
 
-import android.health.connect.datatypes.units.Length
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -10,9 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieCatalog.services.MovieViewModel
 import com.example.movieCatalog.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import menuFragments.AboutFragment
-
+import menuFragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val bottomNav = binding.bottomNavigationView
 
         //test
@@ -40,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-
 
         viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
 
@@ -72,7 +66,6 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
         transaction.commit()
     }
 
