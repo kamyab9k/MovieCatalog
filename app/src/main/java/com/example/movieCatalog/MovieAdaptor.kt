@@ -2,8 +2,10 @@ package com.example.movieCatalog
 
 import android.content.Context
 import android.content.DialogInterface
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieCatalog.models.Movie
@@ -32,7 +34,6 @@ class MovieAdaptor(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
-//            val item = moviesList[position]
             val moviePosterPath = moviesList[position].poster_path
             val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
             val image = imageBaseUrl + moviePosterPath
@@ -45,7 +46,21 @@ class MovieAdaptor(
             MovieReleaseDate.text = moviesList[position].release_date
             Rating.text= moviesList[position].vote_average
         }
+        holder.itemView.setOnClickListener {
+            val movie = moviesList[position]
+            // Handle item click here
+            val detailFragment = MovieDetailFragment()
+            val args = Bundle()
+            args.putParcelable("movie", movie)
+            detailFragment.arguments = args
+
+            val transaction = (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, detailFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
+
 
     fun updateMovies(newMovies: List<Movie>) {
         moviesList = newMovies

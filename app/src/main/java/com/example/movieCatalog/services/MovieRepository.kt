@@ -24,7 +24,7 @@ class MovieRepository {
         })
     }
 
-    fun fetchMovies2(){
+    fun fetchMovies2() {
         val apiService = MovieApiService.getInstance().create(MovieApiInterface::class.java)
     }
 }
