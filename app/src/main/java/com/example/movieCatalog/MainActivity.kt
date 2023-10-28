@@ -14,8 +14,6 @@ import menuFragments.HomeFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MovieViewModel
-    private val movieAdapter = MovieAdaptor(this)
     private val homeFragment = HomeFragment()
     private val aboutFragment = AboutFragment()
 
@@ -25,10 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bottomNav = binding.bottomNavigationView
+        replaceFragment(homeFragment)
 
-        //test
-        bottomNav.setOnItemSelectedListener { item ->
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> replaceFragment(homeFragment)
                 R.id.about -> replaceFragment(aboutFragment)
@@ -36,37 +33,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
-
-        setupMovieRecyclerView()
-        getMovieData()
-        observeMovieData()
     }
 
-    private fun observeMovieData() {
-        viewModel.movieListLiveData.observe(this) { movies ->
-            movieAdapter.updateMovies(movies)
-        }
-    }
-
-    private fun getMovieData() {
-        viewModel.fetchMovies()
-    }
-
-    private fun setupMovieRecyclerView() {
-        binding.rvMoviesList.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            setHasFixedSize(true)
-            adapter = movieAdapter
-        }
-    }
-
-    //test
     private fun replaceFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()
     }
-
 }

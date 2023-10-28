@@ -1,7 +1,6 @@
 package com.example.movieCatalog
 
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,9 +11,9 @@ import com.example.movieCatalog.models.Movie
 import com.example.movieCatalog.databinding.MovieItemBinding
 
 
-class MovieAdaptor(
+class MovieAdapter(
     private val context: Context,
-) : RecyclerView.Adapter<MovieAdaptor.MovieViewHolder>() {
+) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
 //    private var onClickListener: OnClickListener? = null
     private var moviesList: List<Movie> = emptyList()
