@@ -1,25 +1,39 @@
 package com.example.movieCatalog
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.movieCatalog.databinding.FragmentMovieDetailBinding
 import com.example.movieCatalog.models.Movie
 
 class MovieDetailFragment : Fragment() {
+    private lateinit var binding: FragmentMovieDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_movie_detail, container, false)
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentMovieDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // Retrieve movie data from arguments
-        val movie = arguments?.getParcelable<Movie>("movie")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val movie = arguments?.getParcelable<Movie>("movieKey")
+        //test
+        val moviePosterPath = movie?.poster_path
+        val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
+        val image = imageBaseUrl + moviePosterPath
 
-        // Display the movie details in your fragment's layout
+//        Glide.with(requireContext())
+//            .load(image)
+//            .into(binding.moviePosterImageviewDetailFragment)
 
-        return view
+        binding.movieTitleDetailFragment.text = movie?.title
+        binding.TextMultiLineStory.text = movie?.overview
+//        binding.Rating.text = movie?.vote_average
     }
 }
+

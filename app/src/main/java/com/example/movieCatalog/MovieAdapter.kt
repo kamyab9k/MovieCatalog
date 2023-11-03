@@ -15,7 +15,7 @@ class MovieAdapter(
     private val context: Context,
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-//    private var onClickListener: OnClickListener? = null
+    //    private var onClickListener: OnClickListener? = null
     private var moviesList: List<Movie> = emptyList()
 
     inner class MovieViewHolder(val binding: MovieItemBinding) :
@@ -43,17 +43,18 @@ class MovieAdapter(
 
             movieTitle.text = moviesList[position].title
             MovieReleaseDate.text = moviesList[position].release_date
-            Rating.text= moviesList[position].vote_average
+            Rating.text = moviesList[position].vote_average
         }
         holder.itemView.setOnClickListener {
             val movie = moviesList[position]
-            // Handle item click here
+
             val detailFragment = MovieDetailFragment()
             val args = Bundle()
-            args.putParcelable("movie", movie)
+            args.putParcelable("movieKey", movie)
             detailFragment.arguments = args
 
-            val transaction = (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            val transaction =
+                (context as AppCompatActivity).supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, detailFragment)
             transaction.addToBackStack(null)
             transaction.commit()
