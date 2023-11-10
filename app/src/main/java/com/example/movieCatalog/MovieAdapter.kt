@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -33,6 +34,23 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.apply {
+            LikeButton.setOnClickListener {
+
+                moviesList[position].isLiked = moviesList[position].isLiked?.let { it1 ->
+                    toggleLikeState(
+                        it1
+                    )
+                }
+
+                if (moviesList[position].isLiked == "true") {
+                    LikeButton.setImageResource(R.drawable.red_favorite)
+                    Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show()
+                } else {
+                    LikeButton.setImageResource(R.drawable.baseline_favorite_24)
+                }
+
+
+            }
             val moviePosterPath = moviesList[position].poster_path
             val imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
             val image = imageBaseUrl + moviePosterPath
@@ -59,9 +77,16 @@ class MovieAdapter(
             transaction.addToBackStack(null)
             transaction.commit()
         }
+
     }
 
-
+    private fun toggleLikeState(currentState: String): String {
+        return if (currentState == "true") {
+            "false"
+        } else {
+            "true"
+        }
+    }
     fun updateMovies(newMovies: List<Movie>) {
         moviesList = newMovies
         notifyDataSetChanged()
