@@ -11,7 +11,9 @@ Techonologies used in this project :
 * Viewbinding 
 
 
-![Screenshot_2023_09_24_20_13_37_215_com_example_movierecycleview](https://github.com/kamyab9k/MovieCatalog/assets/126459043/8dcc8c9f-4e91-4407-9bd7-5f490d7b5502)  ![Screenshot_2023_09_24_20_14_13_647_com_example_movierecycleview](https://github.com/kamyab9k/MovieCatalog/assets/126459043/ed49b623-cdd1-4e89-9270-6829cbdcb204)
+![photo_2023-12-04_22-25-56](https://github.com/kamyab9k/MovieCatalog/assets/126459043/4895ad35-ae97-4c11-8b1d-7562fc797ee3)
+    ![photo_2023-12-04_22-21-13](https://github.com/kamyab9k/MovieCatalog/assets/126459043/039b0bfe-4092-480b-948d-dc6a4d976abd)
+
 
 
 
